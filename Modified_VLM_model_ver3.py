@@ -359,48 +359,6 @@ def plotting(x_tp,x_vp):
     
 def Cp_l(T_var,A_l,B_l,C_l,D_l,E_l):
     return (A_l+(B_l*(T_var/1000))+(C_l*((T_var/1000)**2))+(D_l*((T_var/1000)**3))+(E_l/((T_var/1000)**2)))/m_a_H2O #Specific heaT_var capaciT_vary based on ShomaT_vare equaT_varion [NIST_var]
-    
-    #Q_dot_tot[j]=sum(Q_dot) #m_dot*(integrate.quad(Cp_l,T[j,0],T_s,args=(A_l,B_l,C_l,D_l,E_l))[0]+L) + np.sum(Q_dot)
-    
-    #P_net[j+1]=P_net[j]-Q_dot_tot[j]
 
 
-#print(sum(q_dot)*A_ht)
-
-def plot_const_Tw():
-    
-    fig1, ax1 = plt.subplots()
-    ax1.plot(s_plot,P*1e-05,'g', label='Constant heat flux model', linewidth=2)
-    ax1.plot(s_plot,P_2*1e-05,'b', label='Constant wall temperature model (Nu = 6)', linewidth=2)
-    ax1.set_xlabel('Fractional length along the channel (s/L_tot)', fontsize=16)
-    ax1.set_ylabel('Chamber pressure (in bar)', fontsize=16)
-    ax1.minorticks_on()
-    ax1.grid(which='both', color='#C1CDC1')
-    ax1.vlines(x=x_tp, ymin=P[count-1]/1e+05, ymax=P[0]/1e+05, colors='black', ls='--', lw=1, label='Onset of two-phase flow')
-    ax1.vlines(x=x_vp, ymin=P[count-1]/1e+05, ymax=P[0]/1e+05, colors='black', ls='-.', lw=1, label='Onset of vapor phase flow')
-    ax1.legend()
-    
-    fig2, ax2 = plt.subplots()
-    ax2.plot(s_plot,T,'g', label='Constant heat flux model', linewidth=2)
-    ax2.plot(s_plot,T_2,'b', label='Constant wall temperature model (Nu = 6)', linewidth=2)
-    ax2.set_xlabel('Fractional length along the channel (s/L_tot)', fontsize=16)
-    ax2.set_ylabel('Temperature (in K)', fontsize=16)
-    ax2.minorticks_on()
-    ax2.grid(which='both', color='#C1CDC1')
-    ax2.vlines(x=x_tp, ymin=T[0], ymax=1.01*max(T[count-1],T_w[count-1]), colors='black', ls='--', lw=1, label='Onset of two-phase flow')
-    if(x_vp!=0):
-        ax2.vlines(x=x_vp, ymin=T[0], ymax=1.01*max(T[count-1],T_w[count-1]), colors='black', ls='-.', lw=1, label='Onset of vapor phase flow')
-    ax2.legend()
-    
-    fig3, ax3 = plt.subplots()
-    ax3.plot(s_plot,h_b,'g', label='Constant heat flux model', linewidth=2)
-    ax3.plot(s_plot,h_b_2,'b', label='Constant wall temperature model (Nu = 6)', linewidth=2)
-    ax3.set_xlabel('Fractional length along the channel (s/L_tot)', fontsize=16)
-    ax3.set_ylabel('Temperature (in K)', fontsize=16)
-    ax3.minorticks_on()
-    ax3.grid(which='both', color='#C1CDC1')
-    ax3.vlines(x=x_tp, ymin=0, ymax=40000, colors='black', ls='--', lw=1, label='Onset of two-phase flow')
-    if(x_vp!=0):
-        ax3.vlines(x=x_vp, ymin=0, ymax=40000, colors='black', ls='-.', lw=1, label='Onset of vapor phase flow')
-    ax3.legend()
     
