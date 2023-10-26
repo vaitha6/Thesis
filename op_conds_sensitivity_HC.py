@@ -8,7 +8,7 @@ import matplotlib.patheffects as patheffects
 
 
 Pow_arr=np.linspace(1,9,50)
-P_init_arr=np.linspace(1e+05, 6e+05, 50)
+P_init_arr=np.linspace(1.5e+05, 6e+05, 50)
 Pow_len=np.shape(Pow_arr)[0]
 P_init_len=np.shape(P_init_arr)[0]
 T_0_arr=np.linspace(300,500,20)
